@@ -80,15 +80,15 @@ class TestLibrary(unittest.TestCase):
 
     def test_return_book(self):
         library = Library()
-        library.add_book("To Kill a Mockingbird")
-        library.borrow_book("To Kill a Mockingbird")
-        library.return_book("To Kill a Mockingbird")
+        library.add_book("The Night We Met")
+        library.borrow_book("The Night We Met")
+        library.return_book("The Night We Met")
         self.assertFalse(library.books[0]['borrowed'])
 
     def test_return_book_not_borrowed(self):
         library = Library()
-        library.add_book("To Kill a Mockingbird")
-        library.return_book("To Kill a Mockingbird")
+        library.add_book("TThe Night We Met")
+        library.return_book("The Night We Met")
         self.assertFalse(library.books[0]['borrowed'])
 
     def test_return_book_not_in_library(self):
