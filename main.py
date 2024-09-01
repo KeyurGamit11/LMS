@@ -30,6 +30,18 @@ class Library:
         else:
             print("No books are currently borrowed.")
 
+    def return_book(self, book_title):
+        for book in self.books:
+            if book["title"] == book_title:
+                if book["borrowed"]:
+                    book["borrowed"] = False
+                    print(f"Thank you for returning '{book_title}'.")
+                    return
+                else:
+                    print(f"'{book_title}' was not borrowed.")
+                    return
+        print(f"'{book_title}' is not in the library.")
+
     def borrow_book(self, book_title):
         for book in self.books:
             if book["title"] == book_title:
@@ -41,4 +53,5 @@ class Library:
                     print(f"Sorry, '{book_title}' is already borrowed.")
                     return
         print(f"Sorry, '{book_title}' is not available in the library.")
+
 
