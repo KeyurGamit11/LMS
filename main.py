@@ -93,3 +93,22 @@ class TestLibrary(unittest.TestCase):
         library.return_book("Nonexistent Book")
         self.assertFalse(any(book['borrowed'] for book in library.books))
 
+     def test_show_info(self):
+        library = Library()
+        library.add_books("Harry Potter")
+        library.add_books("Descipline")
+        library.borrow_book("Descipline")
+        library.add_books("Keyur")
+        
+        available_books = [book["title"] for book in library.books if not book["borrowed"]]
+        borrowed_books = [book["title"] for book in library.books if book["borrowed"]]
+
+        self.assertIn("Harry Potter", available_books)
+        self.assertIn("Keyur", available_books)
+        self.assertIn("Descipline", borrowed_books)
+
+       
+if __name__ == "__main__":
+    unittest.main()
+
+
