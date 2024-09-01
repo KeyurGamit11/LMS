@@ -45,4 +45,13 @@ class Library:
             print(f"Sorry, '{title}' is already borrowed.")
         else:
             book["borrowed"] = True
-            print(f"You have borrowed '{title}'.")
+            print(f"You have borrowed '{title}'.")+
+
+class TestLibrary(unittest.TestCase):
+    
+    def test_add_books(self):
+        library = Library()
+        library.add_books("Keyur")
+        self.assertEqual(len(library.books), 1)
+        self.assertEqual(library.books[0]['title'], "Keyur")
+        self.assertFalse(library.books[0]['borrowed'])
