@@ -55,3 +55,9 @@ class TestLibrary(unittest.TestCase):
         self.assertEqual(len(library.books), 1)
         self.assertEqual(library.books[0]['title'], "Keyur")
         self.assertFalse(library.books[0]['borrowed'])
+    
+    def test_borrow_book(self):
+        library = Library()
+        library.add_books("Discipline")
+        library.borrow_book("Discipline")
+        self.assertTrue(library.books[0]['borrowed'])
