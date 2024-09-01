@@ -4,9 +4,13 @@ This is a simple Python-based library management system. It allows users to add 
 
 Features
 Add Book: Add new books to the library.
-Borrow Book: Borrow a book from the library if it's available.
+
+Borrow Book: Borrow a book from the library if it's available..
+
 Return Book: Return a borrowed book to the library.
+
 Display Books: Show the list of available and borrowed books in the library.
+
 
 
 ![image](https://github.com/user-attachments/assets/dd9b0cb3-492b-49a6-a8f6-7f0d2becf08b)
