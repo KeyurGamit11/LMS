@@ -61,3 +61,16 @@ class TestLibrary(unittest.TestCase):
         library.add_books("Discipline")
         library.borrow_book("Discipline")
         self.assertTrue(library.books[0]['borrowed'])
+
+    def test_borrow_book_already_borrowed(self):
+        library = Library()
+        library.add_books("Stay Fucking Hard")
+        library.borrow_book("Stay Fucking Hard")
+        library.borrow_book("Stay Fucking Hard")
+        self.assertTrue(library.books[0]['borrowed'])
+
+    def test_borrow_book_not_in_library(self):
+        library = Library()
+        library.add_books("Keyur")
+        library.borrow_book("Nonexistent Book")
+        self.assertFalse(any(book['borrowed'] for book in library.books))
