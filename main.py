@@ -74,3 +74,11 @@ class TestLibrary(unittest.TestCase):
         library.add_books("Keyur")
         library.borrow_book("Nonexistent Book")
         self.assertFalse(any(book['borrowed'] for book in library.books))
+
+    def test_return_book(self):
+        library = Library()
+        library.add_books("To Kill a Mockingbird")
+        library.borrow_book("To Kill a Mockingbird")
+        library.return_book("To Kill a Mockingbird")
+        self.assertFalse(library.books[0]['borrowed'])
+
